@@ -15,7 +15,9 @@ namespace CarLand
 {
     public partial class LoginCarLand : Form
     {
-        Users users = new Users();
+        public int counter;
+        public string login;
+        string password;
         public LoginCarLand()
         {
             InitializeComponent();
@@ -28,8 +30,9 @@ namespace CarLand
 
         private void Login_Click(object sender, EventArgs e)
         {
-            string login = textBox1.Text;
-            string password = textBox2.Text;
+            Users users = new Users();
+            login = textBox1.Text;
+            password = textBox2.Text;
             DeSerializeJson();
             string data = File.ReadAllText("Users.json");
             users = JsonSerializer.Deserialize<Users>(data);
@@ -47,10 +50,12 @@ namespace CarLand
                     {
                         if (password == us.Password)
                         {
+                            MainUser mainuser = new MainUser();
+                            mainuser.MainUserList.Add(users.UsersList[counter]);
+                            SerializeJSON(mainuser);
                             Main main = new Main();
                             main.Show();
-                            Hide();
-
+                            Hide();    
                         }
                         else if(password != us.Password)
                         {
@@ -58,9 +63,20 @@ namespace CarLand
                         }
                     }
                 }
+                else if (login == ul.Login)
+                {
+                    label1.Show();
+                }
+                counter++;
             }
         }
-
+        private void SerializeJSON(MainUser mainUser)
+        {
+            string UsersJson = System.Text.Json.JsonSerializer.Serialize(mainUser, typeof(MainUser));
+            StreamWriter file = File.CreateText("User.json");
+            file.WriteLine(UsersJson);
+            file.Close();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             Registration f = new Registration();

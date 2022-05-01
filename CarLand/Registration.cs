@@ -46,7 +46,7 @@ namespace CarLand
         {
             Users users = new Users();
             User user = new User(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                comboBox2.SelectedItem.ToString(), comboBox3.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());        
+                comboBox2.SelectedItem.ToString(), comboBox3.SelectedItem.ToString(), comboBox1.SelectedItem.ToString(), comboBox4.SelectedItem.ToString());        
             users.UsersList.Add(user);
             Users users1 = DataBaseUsersJsonRead();
             users1.UsersList.Add(user);
@@ -62,6 +62,21 @@ namespace CarLand
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
