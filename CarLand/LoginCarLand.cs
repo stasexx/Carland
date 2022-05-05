@@ -99,5 +99,9 @@ namespace CarLand
             textBox2.PasswordChar = '*';
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

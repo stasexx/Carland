@@ -18,81 +18,19 @@ namespace CarLand
         public string FinOpot;
         public Main()
         {
-            string FMark = "";
             InitializeComponent();
             Car car = new Car();
-            Cars cars = DeSerializeJsonCars();
+            Cars cars = new Cars();
             ListViewItem ListViewOfCars = new ListViewItem();
             ListViewOfCars.Tag = car;
             listViewOfCars.Items.Add(ListViewOfCars);
-            MainUser mainUser = DeSerializeJsonUser();
-            foreach (User us in mainUser.MainUserList)
+            cars.GetCars();
+            foreach (Car cr in cars.CarsListView)
             {
-                FMark = us.FavoriteMark;
-            }
-            foreach (Car cr in cars.CarsList)
-            {
-                if (cr.Mark.Contains(FMark))
-                {
-                    foreach(User us in mainUser.MainUserList)
-                    {
-                        if (us.FinOpot == "25000 - 50000")
-                        {
-                            int costOfCar = Convert.ToInt32(cr.Cost);
-                            if(costOfCar >= 20000 && costOfCar <= 50000)
-                            {
-                                Add(cr);
-                            }
-
-                        }
-                        if (us.FinOpot == "10000 - 25000")
-                        {
-                            int costOfCar = Convert.ToInt32(cr.Cost);
-                            if (costOfCar >= 10000 && costOfCar <= 25000)
-                            {
-                                Add(cr);
-                            }
-
-                        }
-                        if (us.FinOpot == "50000 - 100000")
-                        {
-                            int costOfCar = Convert.ToInt32(cr.Cost);
-                            if (costOfCar >= 50000 && costOfCar <= 100000)
-                            {
-                                Add(cr);
-                            }
-
-                        }
-                        if (us.FinOpot == "100000 - 200000")
-                        {
-                            int costOfCar = Convert.ToInt32(cr.Cost);
-                            if (costOfCar >= 100000 && costOfCar <= 2000000)
-                            {
-                                Add(cr);
-                            }
-
-                        }
-                    }
-                }
+                AddToListView(cr);
             }
         }
-
-        private Cars DeSerializeJsonCars()
-        {
-            string data = File.ReadAllText("Cars.json");
-            return JsonSerializer.Deserialize<Cars>(data);
-        }
-        private Users DeSerializeJsonUsers()
-        {
-            string data = File.ReadAllText("Users.json");
-            return JsonSerializer.Deserialize<Users>(data);
-        }
-        private MainUser DeSerializeJsonUser()
-        {
-            string data = File.ReadAllText("User.json");
-            return JsonSerializer.Deserialize<MainUser>(data);
-        }
-        private void Add(Car car)
+        public void AddToListView(Car car)
         {
             ListViewItem ListViewOfCars = new ListViewItem(car.Mark);
             ListViewOfCars.Tag = car;
@@ -132,6 +70,23 @@ namespace CarLand
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var helper = new WordHelper("D:/CarLand/CarLand/documents/blank.docx");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            PersonalPage personalPage = new PersonalPage();
+            personalPage.Show();
+            Hide();
         }
     }
 }

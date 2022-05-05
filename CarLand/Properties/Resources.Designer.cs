@@ -73,6 +73,26 @@ namespace CarLand.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Account_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Account-Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap black_circle_close_button_png_5 {
+            get {
+                object obj = ResourceManager.GetObject("black-circle-close-button-png-5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoMain {
             get {
                 object obj = ResourceManager.GetObject("LogoMain", resourceCulture);
