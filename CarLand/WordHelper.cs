@@ -11,7 +11,6 @@ namespace CarLand
     public class WordHelper
     {
         private FileInfo _fileInfo;
-
         public WordHelper(string fileName)
         {
             if (File.Exists(fileName))
@@ -24,22 +23,16 @@ namespace CarLand
             }
         }
 
-        internal bool Process(Dictionary<string, string> items, bool showPreview)
+        internal bool Process(Dictionary<string, string> items)
         {
             Word.Application app = null;
             try
             {
                 app = new Word.Application();
-
-                string newFileName = Path.Combine(_fileInfo.DirectoryName, DateTime.Now.ToString("yyyyMMdd HHmmss ") + _fileInfo.Name);
-                File.Copy(_fileInfo.FullName, newFileName);
-
-                Object file = newFileName;
-
+                Object file = _fileInfo.FullName;
                 Object missing = Type.Missing;
 
                 app.Documents.Open(file);
-
                 foreach (var item in items)
                 {
                     Word.Find find = app.Selection.Find;
@@ -59,66 +52,26 @@ namespace CarLand
                         Wrap: wrap,
                         Format: false,
                         ReplaceWith: missing, Replace: replace);
+
+
                 }
 
-                app.ActiveDocument.Save();
-
-                if (showPreview)
-                {
-                    app.Visible = true;
-                    app.ActiveDocument.PrintPreview();
-                }
-                else
-                {
-                    app.ActiveDocument.Close();
-                }
+                Object newFileName = Path.Combine(_fileInfo.DirectoryName, DateTime.Now.ToString("yyyy_MM_dd HH_mm_ss ") +  _fileInfo.Name);
+                app.ActiveDocument.SaveAs2(newFileName);
+                app.ActiveDocument.Close();
+                app.Quit();
 
                 return true;
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
-            finally
-            {
-                if (app != null && !showPreview)
-                {
-                    app.Quit();
-                }
-            }
-
-            return false;
-        }
-
-        internal List<string> ReadText()
-        {
-            Word.Application app = null;
-            try
-            {
-                app = new Word.Application();
-                Object file = _fileInfo.FullName;
-
-                Object missing = Type.Missing;
-
-                Word.Document doc = app.Documents.Open(file);
-                var list = new List<string>();
-
-                foreach (Word.Paragraph paragraph in doc.Paragraphs)
-                {
-                    list.Add(paragraph.Range.Text);
-                }
-
-                app.ActiveDocument.Close();
-
-                return list;
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            catch (Exception ex) {Console.WriteLine(ex.Message); }
             finally
             {
                 if (app != null)
                 {
                     app.Quit();
-                }
+                }    
             }
-
-            return null;
+            return false;
         }
     }
 }

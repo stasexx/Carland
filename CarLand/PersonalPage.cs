@@ -22,6 +22,19 @@ namespace CarLand
         public PersonalPage()
         {
             InitializeComponent();
+            Cars cars = new Cars();
+            Cars DeCars = cars.DeSerializeJsonCars();
+            foreach (Car cr in DeCars.CarsList)
+            {
+                if (comboBox1.Items.Contains(cr.OnlyMark))
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox1.Items.Add(cr.OnlyMark);
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

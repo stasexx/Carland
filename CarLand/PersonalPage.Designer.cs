@@ -63,11 +63,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ford",
-            "Lada",
-            "Porsche",
-            "Audi"});
             this.comboBox1.Location = new System.Drawing.Point(53, 122);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(297, 21);

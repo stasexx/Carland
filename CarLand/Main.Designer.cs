@@ -104,14 +104,14 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Magenta;
+            this.button2.BackColor = System.Drawing.Color.BlueViolet;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(12, 623);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 45);
             this.button2.TabIndex = 6;
-            this.button2.Text = "ЛАЙК!";
+            this.button2.Text = "LIKE!";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -144,11 +144,11 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(284, 623);
+            this.button3.Location = new System.Drawing.Point(298, 623);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 45);
             this.button3.TabIndex = 9;
-            this.button3.Text = "Сбросити Like";
+            this.button3.Text = "Скинути список \"LIKE\"";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -167,10 +167,10 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.Magenta;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(141, 623);
+            this.button5.Location = new System.Drawing.Point(159, 623);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(108, 45);
             this.button5.TabIndex = 11;

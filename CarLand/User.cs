@@ -11,8 +11,8 @@ namespace CarLand
         public string Login { get; set; }
         public string Password { get; set; }
         public string FavoriteMark { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        
+        public string FIO { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string FinOpot { get; set; }
@@ -20,13 +20,12 @@ namespace CarLand
         public string HorsePower { get; set; }
 
         public User() { }
-        public User(string Login, string Password, string FirstName, string LastName,
+        public User(string Login, string Password, string FIO,
             string Country, string City, string FavoriteMark, string FinOpot, string TechnicalCondition, string HorsePower)
         {
             this.Login = Login;
             this.Password = Password;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
+            this.FIO = FIO;
             this.Country = Country;
             this.City = City;
             this.FavoriteMark = FavoriteMark;

@@ -63,7 +63,7 @@ namespace CarLand
             DeSerializeJson();
             string data = File.ReadAllText("Users.json");
             users = System.Text.Json.JsonSerializer.Deserialize<Users>(data);
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" &&
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" &&
                 comboBox2.SelectedItem != null && comboBox3.SelectedItem != null &&
                 comboBox1.SelectedItem != null && comboBox4.SelectedItem != null && comboBox5.SelectedItem != null &&
                 comboBox5.SelectedItem != null)
@@ -76,7 +76,7 @@ namespace CarLand
                         return;
                     }
                 }
-                User user = new User(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
+                User user = new User(textBox1.Text, textBox2.Text, textBox3.Text,
                     comboBox2.SelectedItem.ToString(), comboBox3.SelectedItem.ToString(), comboBox1.SelectedItem.ToString(), comboBox4.SelectedItem.ToString(), comboBox5.SelectedItem.ToString(),
                     comboBox6.SelectedItem.ToString());
                 users.UsersList.Add(user);

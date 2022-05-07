@@ -75,7 +75,23 @@ namespace CarLand
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            var helper = new WordHelper("D:/CarLand/CarLand/documents/blank.docx");
+            Random x = new Random();
+            int n = x.Next(0, 1000000000);
+            MainUser mainUser = new MainUser();
+            MainUser mainUser2 = mainUser.DeSerializeJsonUser();
+            var helper = new WordHelper("blank.docx");
+            var items = new Dictionary<string, string>
+            {
+                {"<ORG>", "WorldCars" },
+                {"<FIO>", mainUser2.MainUserList[0].FIO},
+                {"<CITY>", mainUser2.MainUserList[0].City},
+                {"<DATA>", DateTime.Now.ToString("yyyy.MM.dd")},
+                {"<CAR>", textBox3.Text},
+                {"<COST>", textBox2.Text+"$"},
+                {"<ID>", n.ToString()},
+            };
+            MessageBox.Show("Документ успішно сформовано!Найближчим часом з вами зв'яжеться наш менеджер!");
+            helper.Process(items);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

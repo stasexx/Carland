@@ -69,6 +69,7 @@ namespace CarLand
                 }
                 counter++;
             }
+            counter = 0;
         }
         private void SerializeJSON(MainUser mainUser)
         {
