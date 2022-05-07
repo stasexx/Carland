@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Car.cs" />
     <Compile Include="Cars.cs" />
+    <Compile Include="CarsThatUserLike.cs" />
     <Compile Include="LoginCarLand.cs">
       <SubType>Form</SubType>
     </Compile>

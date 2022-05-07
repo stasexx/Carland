@@ -34,6 +34,7 @@ namespace CarLand
             Users users2 = users.DeSerializeJsonUsers();
             FavMark = comboBox1.Text;
             FinOpot = comboBox4.Text;
+            Log = mainUser2.MainUserList[0].Login;
             foreach(User user in mainUser2.MainUserList)
             {
                 user.FavoriteMark = FavMark;

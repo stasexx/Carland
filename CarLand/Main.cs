@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -87,6 +88,60 @@ namespace CarLand
             PersonalPage personalPage = new PersonalPage();
             personalPage.Show();
             Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Car car = (Car)listViewOfCars.SelectedItems[0].Tag;
+            CarsThatUserLike CTUL = new CarsThatUserLike();
+            CarsThatUserLike CTUL1 = CTUL.DeSerializeCarsJsonThatUserLike();
+            CTUL1.CarsThatUserLikeList.Add(car);
+            string currency = JsonConvert.SerializeObject(CTUL1);
+            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "CarsThatUserLike.json"), currency);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listViewOfCars.Clear();
+            Car car = new Car();
+            Cars cars = new Cars();
+            ListViewItem ListViewOfCars = new ListViewItem();
+            ListViewOfCars.Tag = car;
+            listViewOfCars.Items.Add(ListViewOfCars);
+            cars.GetCars();
+            foreach (Car cr in cars.CarsListView)
+            {
+                AddToListView(cr);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Car car = new Car();
+            CarsThatUserLike CTUL = new CarsThatUserLike();
+            ListViewItem ListViewOfCars = new ListViewItem();
+            CarsThatUserLike CTUL1 = CTUL.DeSerializeCarsJsonThatUserLike();
+            listViewOfCars.Clear();
+            ListViewOfCars.Tag = car;
+            listViewOfCars.Items.Add(ListViewOfCars);
+            foreach (Car cr in CTUL1.CarsThatUserLikeList)
+            {
+                AddToListView(cr);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Car car = new Car();
+            CarsThatUserLike CTUL = new CarsThatUserLike();
+            CarsThatUserLike CTUL1 = CTUL.DeSerializeCarsJsonThatUserLike();
+            for(int i = 0; i< CTUL1.CarsThatUserLikeList.Count; i++)
+            {
+                CTUL1.CarsThatUserLikeList.RemoveAt(i);
+            }
+            string currency = JsonConvert.SerializeObject(CTUL1);
+            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "CarsThatUserLike.json"), currency);
+            listViewOfCars.Clear();
         }
     }
 }

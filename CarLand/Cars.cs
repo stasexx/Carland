@@ -12,6 +12,7 @@ namespace CarLand
     {
         public List<Car> CarsList { get; set; } = new List<Car>();
         public List<Car> CarsListView { get; set; } = new List<Car>();
+        public List<Car> AllCarsListView { get; set; } = new List<Car>();
 
         public void GetCars()
         {
@@ -63,6 +64,15 @@ namespace CarLand
                         }
                     }
                 }
+            }
+        }
+        public void GetAllCars()
+        {
+            Car car = new Car();
+            Cars cars = DeSerializeJsonCars();
+            foreach (Car cr in cars.CarsList)
+            {
+                AllCarsListView.Add(cr);
             }
         }
         public Cars DeSerializeJsonCars()
