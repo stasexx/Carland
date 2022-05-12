@@ -65,12 +65,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.listViewOfCars = new System.Windows.Forms.ListView();
             this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddCarToList
             // 
             this.AddCarToList.BackColor = System.Drawing.Color.Lime;
-            this.AddCarToList.Location = new System.Drawing.Point(341, 472);
+            this.AddCarToList.Location = new System.Drawing.Point(325, 465);
             this.AddCarToList.Name = "AddCarToList";
             this.AddCarToList.Size = new System.Drawing.Size(406, 106);
             this.AddCarToList.TabIndex = 0;
@@ -224,7 +225,6 @@
             this.label8.Size = new System.Drawing.Size(193, 13);
             this.label8.TabIndex = 17;
             this.label8.Text = "Автомобіль успішно видалено !";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // textBox8
             // 
@@ -232,7 +232,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(314, 20);
             this.textBox8.TabIndex = 18;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label9
             // 
@@ -398,13 +397,25 @@
             this.label17.Size = new System.Drawing.Size(60, 13);
             this.label17.TabIndex = 39;
             this.label17.Text = "Успішно!";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.DimGray;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label18.Location = new System.Drawing.Point(432, 574);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(175, 13);
+            this.label18.TabIndex = 40;
+            this.label18.Text = "Автомобіль успішно додано!";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 590);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.listViewOfCars);
             this.Controls.Add(this.label15);
@@ -489,5 +500,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListView listViewOfCars;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -78,12 +79,72 @@ namespace CarLand
         public Cars DeSerializeJsonCars()
         {
             string data = File.ReadAllText("Cars.json");
-            return JsonSerializer.Deserialize<Cars>(data);
+            return System.Text.Json.JsonSerializer.Deserialize<Cars>(data);
         }
         private MainUser DeSerializeJsonUser()
         {
             string data = File.ReadAllText("User.json");
-            return JsonSerializer.Deserialize<MainUser>(data);
+            return System.Text.Json.JsonSerializer.Deserialize<MainUser>(data);
+        }
+        public void AddCarToList(string OnlyMark, string Mark, string YearOf, string Cost, string TechChr,
+            string TechnicalCondition, string HorsePower)
+        {
+            Car car = new Car(OnlyMark, Mark, YearOf, Cost, TechChr, TechnicalCondition, HorsePower);
+            CarsList.Add(car);
+            Cars cars1 = DataBaseCarsJsonRead();
+            cars1.CarsList.Add(car);
+            string currency = JsonConvert.SerializeObject(cars1);
+            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
+        }
+        public void CarDelete(string Mark)
+        {
+            Cars DeCars = DeSerializeJsonCars();
+            Cars cars1 = DataBaseCarsJsonRead();
+            string mark = Mark;
+            int counter = 0;
+            foreach (Car cr in DeCars.CarsList)
+            {
+                if (cr.Mark == mark)
+                {
+                    cars1.CarsList.RemoveAt(counter);
+                    string currency = JsonConvert.SerializeObject(cars1);
+                    File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+            counter = 0;
+        }
+        public void CarChanger(string CarMark, string OnlyMark, string Mark, string YearOf, string Cost, string TechChr, string TechnicalCondition, string HorsePower)
+        {
+            int counter = 0;
+            string MarkAndModel = CarMark;
+            Cars DeCars = DeSerializeJsonCars();
+            foreach (Car cr in DeCars.CarsList)
+            {
+                if (cr.Mark == MarkAndModel)
+                {
+                    DeCars.CarsList.RemoveAt(counter);
+                    Car car = new Car(OnlyMark, Mark, YearOf, Cost, TechChr, TechnicalCondition, HorsePower);
+                    DeCars.CarsList.Add(car);
+                    string currency = JsonConvert.SerializeObject(DeCars);
+                    File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
+                    return;
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+        }
+        public static Cars DataBaseCarsJsonRead()
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "Cars.json");
+            var json = File.ReadAllText(path);
+            Cars currency = JsonConvert.DeserializeObject<Cars>(json);
+            return currency ?? new Cars();
         }
     }
 }

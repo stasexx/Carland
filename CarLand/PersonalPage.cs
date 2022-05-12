@@ -35,8 +35,8 @@ namespace CarLand
                     comboBox1.Items.Add(cr.OnlyMark);
                 }
             }
+            label2.Hide();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             User uSer = new User();
@@ -56,26 +56,24 @@ namespace CarLand
             mainUser2.SerializeUserJSON(mainUser2);
             foreach (User user1 in users2.UsersList)
             {
-                lenght++;
-            }
-            foreach (User user1 in users2.UsersList)
-            {
-                if (user1.Login == Log)
+                if(comboBox1.Text != "" && comboBox4.Text != "")
                 {
-                    Users users1 = Users.DataBaseUsersJsonRead();
-                    users1.UsersList.RemoveAt(counter);
-                    string data = File.ReadAllText("Users.json");
-                    users1.UsersList.Add(mainUser2.MainUserList[0]);
-                    string currency = JsonConvert.SerializeObject(users1);
-                    File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Users.json"), currency);
-                    Main main = new Main();
-                    Hide();
-                    main.Show();
-                    return;
+                    if (user1.Login == Log)
+                    {
+                        users.PersonChanger(mainUser2, counter);
+                        Main main = new Main();
+                        Hide();
+                        main.Show();
+                        return;
+                    }
+                    else
+                    {
+                        counter++;
+                    }
                 }
                 else
                 {
-                    counter++;
+                    label2.Show();
                 }
             }
         }

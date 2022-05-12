@@ -19,6 +19,10 @@ namespace CarLand
         public AdminForm()
         {
             InitializeComponent();
+            ListView();
+        }
+        private void ListView()
+        {
             Car car = new Car();
             Cars cars = new Cars();
             ListViewItem ListViewOfCars = new ListViewItem();
@@ -31,25 +35,15 @@ namespace CarLand
             }
             label8.Hide();
             label17.Hide();
+            label18.Hide();
         }
-        public static Cars DataBaseCarsJsonRead()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "Cars.json");
-            var json = File.ReadAllText(path);
-            Cars currency = JsonConvert.DeserializeObject<Cars>(json);
-            return currency ?? new Cars();
-
-        }
-
         private void AddCarToList_Click(object sender, EventArgs e)
         {
             Cars cars = new Cars();
-            Car car = new Car(textBox8.Text, textBox1.Text, textBox2.Text, textBox4.Text, textBox3.Text, textBox5.Text, textBox6.Text);
-            cars.CarsList.Add(car);
-            Cars cars1 = DataBaseCarsJsonRead();
-            cars1.CarsList.Add(car);
-            string currency = JsonConvert.SerializeObject(cars1);
-            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
+            cars.AddCarToList(textBox8.Text, textBox1.Text, textBox2.Text, textBox4.Text, textBox3.Text, textBox5.Text, textBox6.Text);
+            listViewOfCars.Clear();
+            ListView();
+            label18.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,59 +56,19 @@ namespace CarLand
         private void button2_Click(object sender, EventArgs e)
         {
             Cars cars = new Cars();
-            Cars DeCars = cars.DeSerializeJsonCars();
-            mark = textBox7.Text;
-            foreach (Car cr in DeCars.CarsList)
-            {
-                if(cr.Mark == mark)
-                {
-                    Cars cars1 = DataBaseCarsJsonRead();
-                    cars1.CarsList.RemoveAt(counter);
-                    string currency = JsonConvert.SerializeObject(cars1);
-                    File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
-                    label8.Show();
-                }
-                else
-                {
-                    counter++;
-                }
-            }
+            cars.CarDelete(textBox7.Text);
+            listViewOfCars.Clear();
+            ListView();
+            label8.Show();
         }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            int counter1 = 0;
             Cars Cars = new Cars();
-            string MarkAndModel = textBox9.Text;
-            Cars DeCars = Cars.DeSerializeJsonCars();
-            foreach(Car cr in DeCars.CarsList)
-            {
-                if(cr.Mark == MarkAndModel)
-                {
-                    DeCars.CarsList.RemoveAt(counter1);
-                    Car car = new Car(textBox10.Text, textBox9.Text, textBox16.Text, textBox13.Text, textBox14.Text,
+            Cars.CarChanger(textBox9.Text, textBox10.Text, textBox9.Text, textBox16.Text, textBox13.Text, textBox14.Text,
                          textBox15.Text, textBox12.Text);
-                    DeCars.CarsList.Add(car);
-                    string currency = JsonConvert.SerializeObject(DeCars);
-                    File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
-                    label17.Show();
-                    return;
-                }
-                else
-                {
-                    counter1++;
-                }
-            }
+            label17.Show();
+            listViewOfCars.Clear();
+            ListView();
         }
         public void AddToListView(Car car)
         {
@@ -137,13 +91,9 @@ namespace CarLand
                     textBox12.Text = car.HorsePower;
                     textBox14.Text = car.TechChr;
                     textBox13.Text = car.Cost;
+                    textBox7.Text = car.Mark;
                 }
             }
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -67,7 +67,6 @@
             this.RegLogin.Size = new System.Drawing.Size(65, 26);
             this.RegLogin.TabIndex = 0;
             this.RegLogin.Text = "Логін";
-            this.RegLogin.Click += new System.EventHandler(this.label1_Click);
             // 
             // RegPassword
             // 
@@ -87,7 +86,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(297, 20);
             this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -98,12 +96,12 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(545, 126);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(297, 21);
             this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -119,6 +117,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Україна"});
@@ -126,7 +125,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(297, 21);
             this.comboBox2.TabIndex = 7;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -150,10 +148,10 @@
             this.label3.Size = new System.Drawing.Size(275, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Країна, де ви знаходитесь";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "Запоріжжя ",
@@ -201,9 +199,9 @@
             this.RegButt.BackColor = System.Drawing.Color.Transparent;
             this.RegButt.BackgroundImage = global::CarLand.Properties.Resources.REGBUTT;
             this.RegButt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.RegButt.Location = new System.Drawing.Point(298, 506);
+            this.RegButt.Location = new System.Drawing.Point(298, 501);
             this.RegButt.Name = "RegButt";
-            this.RegButt.Size = new System.Drawing.Size(321, 80);
+            this.RegButt.Size = new System.Drawing.Size(320, 85);
             this.RegButt.TabIndex = 4;
             this.RegButt.UseVisualStyleBackColor = false;
             this.RegButt.Click += new System.EventHandler(this.button1_Click);
@@ -219,7 +217,6 @@
             this.label7.Size = new System.Drawing.Size(234, 24);
             this.label7.TabIndex = 17;
             this.label7.Text = "Фінансові можливості ";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -231,10 +228,10 @@
             this.label8.Size = new System.Drawing.Size(111, 13);
             this.label8.TabIndex = 19;
             this.label8.Text = "*Всі ціни в доларах $";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // comboBox4
             // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "10000 - 25000",
@@ -257,7 +254,6 @@
             this.label9.Size = new System.Drawing.Size(211, 13);
             this.label9.TabIndex = 20;
             this.label9.Text = "Всі поля повинні бути заповнені!!!";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -273,6 +269,7 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
             "Новий ",
@@ -296,6 +293,7 @@
             // 
             // comboBox6
             // 
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             "100 - 150 к.с",
@@ -307,7 +305,6 @@
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(296, 21);
             this.comboBox6.TabIndex = 24;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // label12
             // 

@@ -18,7 +18,6 @@ namespace CarLand
             string data = File.ReadAllText("User.json");
             return System.Text.Json.JsonSerializer.Deserialize<MainUser>(data);
         }
-
         public void SerializeUserJSON(MainUser mainUser)
         {
             string UsersJson = System.Text.Json.JsonSerializer.Serialize(mainUser, typeof(MainUser));
