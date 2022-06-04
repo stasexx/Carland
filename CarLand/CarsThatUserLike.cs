@@ -47,7 +47,7 @@ namespace CarLand
             CarsThatUserLike CTUL1 = CTUL.DeSerializeCarsJsonThatUserLike();
             foreach (Car cr in CTUL1.CarsThatUserLikeList)
             {
-                string line = $"Автомобілі, котрі вам сподобалися!\r\nМарка автомобіля : {cr.Mark} \r\nТехнічні характеристики : {cr.TechChr} \r\n Ціна : {cr.Cost}";
+                string line = $"Автомобіль, котрий вам сподобався!\r\nМарка автомобіля : {cr.Mark} \r\nТехнічні характеристики : {cr.TechChr} \r\n Ціна : {cr.Cost}";
                 MainString += "\r\n\r\n\r\n\r\n" + line;
             }
             File.WriteAllText(@"D:\CarLand\CarLand\CarLand\documents\LikeList.txt", MainString);

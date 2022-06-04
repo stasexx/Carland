@@ -37,7 +37,7 @@ namespace CarLand
             }
             label2.Hide();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
             User uSer = new User();
             MainUser mainUser = new MainUser();

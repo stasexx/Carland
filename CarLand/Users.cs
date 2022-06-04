@@ -19,23 +19,14 @@ namespace CarLand
             string data = File.ReadAllText("Users.json");
             return System.Text.Json.JsonSerializer.Deserialize<Users>(data);
         }
-        public static Users DataBaseUsersJsonRead()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "Users.json");
-            var json = File.ReadAllText(path);
-
-            Users currency = JsonConvert.DeserializeObject<Users>(json);
-            return currency ?? new Users();
-
-        }
         public void Registration(string Login, string Password, string FIO,
             string Country, string City, string FavoriteMark, string FinOpot, string TechnicalCondition, string HorsePower)
         {
-            Users users = DataBaseUsersJsonRead();
+            Users users = DeSerializeJson();
             User user = new User(Login, Password, FIO,
             Country, City, FavoriteMark, FinOpot, TechnicalCondition,HorsePower);
             users.UsersList.Add(user);
-            Users users1 = DataBaseUsersJsonRead();
+            Users users1 = DeSerializeJson();
             users1.UsersList.Add(user);
             string currency = JsonConvert.SerializeObject(users1);
             File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Users.json"), currency);
@@ -47,7 +38,7 @@ namespace CarLand
         }
         public void PersonChanger(MainUser mainUser2, int counter)
         {
-            Users users1 = Users.DataBaseUsersJsonRead();
+            Users users1 = DeSerializeJson();
             users1.UsersList.RemoveAt(counter);
             string data = File.ReadAllText("Users.json");
             users1.UsersList.Add(mainUser2.MainUserList[0]);
@@ -91,7 +82,7 @@ namespace CarLand
             if (ListViewCount == 1)
             {
                 MessageBox.Show("Документ успішно сформовано! Найближчим часом з вами зв'яжеться наш менеджер!");
-                helper.Process(items);
+                helper.CreatingDoc(items);
             }
             else
             {

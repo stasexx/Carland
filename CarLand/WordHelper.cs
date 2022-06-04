@@ -23,7 +23,7 @@ namespace CarLand
             }
         }
 
-        internal bool Process(Dictionary<string, string> items)
+        internal bool CreatingDoc(Dictionary<string, string> items)
         {
             Word.Application app = null;
             try

@@ -46,14 +46,14 @@ namespace CarLand
             label18.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             LoginCarLand loginCarLand = new LoginCarLand();
             Close();
             loginCarLand.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Delete_Click(object sender, EventArgs e)
         {
             Cars cars = new Cars();
             cars.CarDelete(textBox7.Text);
@@ -61,7 +61,7 @@ namespace CarLand
             ListView();
             label8.Show();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void Edit_Click(object sender, EventArgs e)
         {
             Cars Cars = new Cars();
             Cars.CarChanger(textBox9.Text, textBox10.Text, textBox9.Text, textBox16.Text, textBox13.Text, textBox14.Text,

@@ -91,7 +91,7 @@ namespace CarLand
         {
             Car car = new Car(OnlyMark, Mark, YearOf, Cost, TechChr, TechnicalCondition, HorsePower);
             CarsList.Add(car);
-            Cars cars1 = DataBaseCarsJsonRead();
+            Cars cars1 = DeSerializeJsonCars();
             cars1.CarsList.Add(car);
             string currency = JsonConvert.SerializeObject(cars1);
             File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Cars.json"), currency);
@@ -99,7 +99,7 @@ namespace CarLand
         public void CarDelete(string Mark)
         {
             Cars DeCars = DeSerializeJsonCars();
-            Cars cars1 = DataBaseCarsJsonRead();
+            Cars cars1 = DeSerializeJsonCars();
             string mark = Mark;
             int counter = 0;
             foreach (Car cr in DeCars.CarsList)
@@ -138,13 +138,6 @@ namespace CarLand
                     counter++;
                 }
             }
-        }
-        public static Cars DataBaseCarsJsonRead()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "Cars.json");
-            var json = File.ReadAllText(path);
-            Cars currency = JsonConvert.DeserializeObject<Cars>(json);
-            return currency ?? new Cars();
         }
     }
 }

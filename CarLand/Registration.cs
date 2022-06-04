@@ -36,7 +36,7 @@ namespace CarLand
             label9.Hide();
             label10.Hide();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void RegButt_Click(object sender, EventArgs e)
         {
             Users users = new Users();
             users.DeSerializeJsonUsers();

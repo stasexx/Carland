@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Back = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -144,16 +144,16 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Технічні характеристики";
             // 
-            // button1
+            // Back
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(82, 507);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 58);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Назад";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Back.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Back.Location = new System.Drawing.Point(82, 507);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(99, 58);
+            this.Back.TabIndex = 9;
+            this.Back.Text = "Назад";
+            this.Back.UseVisualStyleBackColor = false;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // textBox5
             // 
@@ -196,7 +196,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Видалити";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Delete_Click);
             // 
             // textBox7
             // 
@@ -253,7 +253,7 @@
             this.button3.TabIndex = 20;
             this.button3.Text = "Редагувати автомобіль";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Edit_Click);
             // 
             // textBox9
             // 
@@ -443,7 +443,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Back);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -472,7 +472,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Back;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label5;

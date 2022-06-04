@@ -56,7 +56,7 @@ namespace CarLand
                 }
             }
         }
-        private void button1_Click_1(object sender, EventArgs e)
+        private void TakeOrder_Click(object sender, EventArgs e)
         {
             Users users = new Users();
             users.Doc(listViewOfCars.SelectedItems.Count, textBox3.Text, textBox2.Text);
@@ -65,13 +65,13 @@ namespace CarLand
         {
             Application.Exit();
         }
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void PersonalOffice_Click(object sender, EventArgs e)
         {
             PersonalPage personalPage = new PersonalPage();
             personalPage.Show();
             Hide();
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void LIKE_Click(object sender, EventArgs e)
         {
             CarsThatUserLike CTUL = new CarsThatUserLike();
             CarsThatUserLike CTUL1 = CTUL.DeSerializeCarsJsonThatUserLike();
@@ -86,7 +86,7 @@ namespace CarLand
                 label2.Show();
             }
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void ShowAllCars_Click(object sender, EventArgs e)
         {
             listViewOfCars.Clear();
             Car car = new Car();
@@ -100,7 +100,7 @@ namespace CarLand
                 AddToListView(cr);
             }
         }
-        private void button5_Click(object sender, EventArgs e)
+        private void CarsThatLikes_Click(object sender, EventArgs e)
         {
             Car car = new Car();
             CarsThatUserLike CTUL = new CarsThatUserLike();
@@ -114,13 +114,13 @@ namespace CarLand
                 AddToListView(cr);
             }
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void ClearListOfCarsThatLikes_Click(object sender, EventArgs e)
         {
             CarsThatUserLike CTUL = new CarsThatUserLike();
             CTUL.deleteCarsFromLikeList();
             listViewOfCars.Clear();
         }
-        private void button6_Click(object sender, EventArgs e)
+        private void SaveLikeList_Click(object sender, EventArgs e)
         {
             CarsThatUserLike CTUL = new CarsThatUserLike();
             CTUL.TxtHelper();            

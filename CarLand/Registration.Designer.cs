@@ -204,7 +204,7 @@
             this.RegButt.Size = new System.Drawing.Size(320, 85);
             this.RegButt.TabIndex = 4;
             this.RegButt.UseVisualStyleBackColor = false;
-            this.RegButt.Click += new System.EventHandler(this.button1_Click);
+            this.RegButt.Click += new System.EventHandler(this.RegButt_Click);
             // 
             // label7
             // 

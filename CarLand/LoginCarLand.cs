@@ -29,8 +29,8 @@ namespace CarLand
         private void Login_Click(object sender, EventArgs e)
         {
             Users users = new Users();
-            login = textBox1.Text;
-            password = textBox2.Text;
+            login = textBoxForLogin.Text;
+            password = textBoxForPassword.Text;
             Users usersList = users.DeSerializeJsonUsers();
             if(login == "admin" && password == "admin")
             {
@@ -67,16 +67,16 @@ namespace CarLand
             }
             counter = 0;
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Registration_Click(object sender, EventArgs e)
         {
             Registration f = new Registration();
             f.Show();
         }
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void textBoxForPassword_TextChanged(object sender, EventArgs e)
         {
-            textBox2.PasswordChar = '*';
+            textBoxForPassword.PasswordChar = '*';
         }
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
